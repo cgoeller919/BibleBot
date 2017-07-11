@@ -1,3 +1,5 @@
+#functions for opening twitch socket and sending messages
+
 import socket
 from cfg import HOST, PORT, PASS, IDENT, CHANNEL
 

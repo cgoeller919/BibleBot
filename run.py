@@ -1,3 +1,5 @@
+#master function
+
 import string, time, json
 import scriptures
 from cfg import VERSION, CMDDELAY

@@ -1,3 +1,5 @@
+#initalization for twitch
+
 import string
 from sock import sendMessage
 

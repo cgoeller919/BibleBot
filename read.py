@@ -1,3 +1,5 @@
+#functions for reading twitch chat
+
 import string
 def getUser(line):
     separate = line.split(":", 2)

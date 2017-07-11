@@ -1,4 +1,4 @@
-#config
+#config for BibleBot
 
 HOST = "irc.twitch.tv" #do not change
 PORT = 6667 #do not change
