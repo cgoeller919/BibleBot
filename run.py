@@ -1,7 +1,6 @@
 #master function
 
-import string, time, json
-import scriptures
+import string, time
 from cfg import VERSION, CMDDELAY
 from biblegateway import biblegateway_api
 from read import getUser, getMessage
