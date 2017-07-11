@@ -1,6 +1,7 @@
 #master function
 
 import string, time
+import scriptures
 from cfg import VERSION, CMDDELAY
 from biblegateway import biblegateway_api
 from read import getUser, getMessage

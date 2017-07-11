@@ -5,3 +5,7 @@ This is my BibleBot for Twitch. The purpose of this bot is to allow streamers to
 This bot in its unpackaged form requires Python 2.7.13. You can download it here: https://www.python.org/downloads/release/python-2713/
 
 This also requires several additional libraries that may or may not come preloaded in your IDE. You can find these libraries in the header each of the files.
+
+This project also uses two open source modules:
+BibleGatewayPyAPI: https://github.com/nardyn/biblegatewayPyAPI/
+Scriptures: https://pypi.python.org/pypi/python-scriptures/
