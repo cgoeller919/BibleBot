@@ -1,0 +1,3 @@
+Leo Racanelli <leo.racanelli@gmail.com>
+
+Some code based and inspired by Biblegatewaybot https://github.com/whipermr5/biblegatewaybot by whipermr5 
