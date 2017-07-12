@@ -9,3 +9,10 @@ This also requires several additional libraries that may or may not come preload
 This project also uses two open source modules:
 BibleGatewayPyAPI: https://github.com/nardyn/biblegatewayPyAPI/
 Scriptures: https://pypi.python.org/pypi/python-scriptures/
+
+I would like to thank Bad Nidalee for his video helping me to learn how to develop this chat bot. You can find his video tutorial here: https://www.youtube.com/watch?v=T8DLwACpe3o&t=1337s
+
+Twitch Commands
+
+!verse [book] [chappter] [verse number] - prints the request verse
+!votd - prints www.biblegateway.com's verse of the day (currently not functioning)
