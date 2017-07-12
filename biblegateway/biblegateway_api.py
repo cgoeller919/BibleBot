@@ -116,8 +116,8 @@ def get_passage(passage, version=default_version, numeration=True, title=True):
     for tag in soup(class_=WANTED):
         final_text += tag.text.strip()
 
-    return final_text.strip().encode('ascii', 'ignore')
-    #return {'reference': reference, 'version': version, 'text': final_text.strip()}
+    return final_text.strip().encode('ascii', 'ignore') #my code, cleaning up of the original so it just the verse
+    #return {'reference': reference, 'version': version, 'text': final_text.strip()} -- original code
 
 
 """
@@ -198,10 +198,9 @@ def getVotd(version=default_version):
     response = urllib2.urlopen(url)
     data = response.read()
 
-    #return data.strip().encode('ascii', 'ignore')
-    return{'version' : version, 'text' : get_passage(data['votd']['reference'])}
+    return{'version' : version, 'text' : get_passage(data['votd']['reference'])} #my code, trying to only extract information I need
     #return {'reference': data['votd']['reference'], 'version': version, 'text': get_passage(data['votd']['reference'],
-    #        version = version, numeration=False, title=False)['text']}
+    #        version = version, numeration=False, title=False)['text']} -- original code
 
 """
 Get Books List and chapter num for each book.
