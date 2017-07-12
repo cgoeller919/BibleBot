@@ -39,6 +39,6 @@ while True:
                 votd = str(biblegateway_api.getVotd(VERSION))
                 sendMessage(s, votd)
                 time.sleep(CMDDELAY)
-        except:
-            sendMessage(s, "I'm sorry, " + user + ", the correct format is \"!verse book chapter versenum\"")
+        except IndentationError:
+            sendMessage(s, "I'm sorry, " + user + ", the correct format is \"!verse Nook Chapter VerseNumber\"")
             pass
