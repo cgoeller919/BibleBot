@@ -36,7 +36,7 @@ while True:
                 sendMessage(s, passage + " (" + VERSION + "): "+ scripture)
                 time.sleep(CMDDELAY)
             elif "!votd" in message: #looks for votd command in twitch chat
-                votd = str(biblegateway_api.getVotd(VERSION))
+                votd = biblegateway_api.getVotd(VERSION)
                 sendMessage(s, votd)
                 time.sleep(CMDDELAY)
         except IndentationError:

@@ -116,8 +116,8 @@ def get_passage(passage, version=default_version, numeration=True, title=True):
     for tag in soup(class_=WANTED):
         final_text += tag.text.strip()
 
-    return final_text.strip().encode('ascii', 'ignore') #my code, cleaning up of the original so it just the verse
-    #return {'reference': reference, 'version': version, 'text': final_text.strip()} -- original code
+    #return final_text.strip().encode('ascii', 'ignore') #my code, cleaning up of the original so it just the verse
+    #return {'reference': reference, 'version': version, 'text': final_text.strip()} #-- original code
 
 
 """
