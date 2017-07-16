@@ -13,7 +13,7 @@ def joinRoom(s):
         for line in temp:
             print(line)
             Loading = loadingComplete(line)
-    sendMessage(s, "Successfully joined chat")
+    sendMessage(s, "Hi, I'm Bible_Bot! Use !verse [book] [chapter] [verse] to print a verse to the chat!")
 
 def loadingComplete(line):
     if("End of /NAMES list" in line):

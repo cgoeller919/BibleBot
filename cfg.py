@@ -7,3 +7,4 @@ IDENT = "Bible_Bot" #do not change
 CHANNEL = "cgoeller" #change for the appropriate twitch channel's chat
 VERSION = "NIV" #change for your desired version - see www.biblegateway.com for list of translations
 CMDDELAY = 10 #delay in seconds for running commands so that chat doesn't get flooded
+HELP = "You can use \"!verse [book] [chapter] [verse number]\" for a specific verse, or \"!votd\" for verse of the day."
