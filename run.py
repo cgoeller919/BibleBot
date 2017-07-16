@@ -39,7 +39,7 @@ def BibleBot():
                 elif "!votd" in message: #looks for votd command in twitch chat
                     votd = biblegateway_api.jsonText
                     votdRef = biblegateway_api.jsonRef
-                    sendMessage(s, votdRef + " (" + VERSION + "): "+ votd)
+                    sendMessage(s, "Verse of the Day: " + votdRef + " (" + VERSION + "): "+ votd)
                     time.sleep(CMDDELAY)
                 elif "!votd ?" or "!votd help" in message:
                     sendMessage(s, HELP)
