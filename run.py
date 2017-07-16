@@ -46,5 +46,3 @@ def BibleBot():
             except IndentationError:
                 sendMessage(s, "Usage is \"!verse [Book] [Chapter] [Verse Number]\"")
                 pass
-
-BibleBot()
