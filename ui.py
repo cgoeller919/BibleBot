@@ -1,6 +1,7 @@
 from Tkinter import *
 from cfg import *
-import run
+from run import bibleOn
+import ttk
 
 root = Tk()
 var = StringVar(root)
@@ -19,7 +20,7 @@ versionDrop = OptionMenu(root, var, *TSLNS)
 versionDrop.grid(row=1, column=1)
 
 #run button
-turnOn = Button(root, text="Turn On", command=run.BibleBot)
+turnOn = Button(root, text="Turn On", command=bibleOn)
 turnOn.grid(row=3, column=1)
 
 #stay logged in

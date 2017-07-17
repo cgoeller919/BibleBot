@@ -8,9 +8,11 @@ from read import getUser, getMessage
 from sock import openSocket, sendMessage
 from initalize import joinRoom
 
-s = openSocket()
-joinRoom(s)
 readBuffer = ""
+s = openSocket()
+
+def openConnection():
+    joinRoom(s)
 
 def BibleBot():
     while True:
@@ -41,8 +43,12 @@ def BibleBot():
                     time.sleep(CMDDELAY)
                 elif "!votd ?" or "!votd help" in message:
                     sendMessage(s, HELP)
+                else:
+                    pass
             except IndentationError:
                 sendMessage(s, "Usage is \"!verse [Book] [Chapter] [Verse Number]\"")
                 pass
 
-BibleBot()
+def bibleOn():
+    openConnection()
+    BibleBot()
