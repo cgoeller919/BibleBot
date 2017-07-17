@@ -19,8 +19,8 @@ versionDrop = OptionMenu(root, var, *TSLNS)
 versionDrop.grid(row=1, column=1)
 
 #run button
-#turnOn = Button(root, text="Turn On", command=run.BibleBot)
-#turnOn.grid(row=3, column=1)
+turnOn = Button(root, text="Turn On", command=run.BibleBot)
+turnOn.grid(row=3, column=1)
 
 #stay logged in
 stayLI = Checkbutton(root, text="Remember These Settings")

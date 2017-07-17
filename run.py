@@ -27,9 +27,7 @@ def BibleBot():
             message = getMessage(line)
             print(user) + " typed: " + message
             try:
-                if "!verse niggalations 4 20" in message:
-                    sendMessage(s, "Haha, Nice try.")
-                elif "!verse" in message: #looks for !verse command in twitch chat
+                if "!verse" in message: #looks for !verse command in twitch chat
                     scriptFind = message.split()
                     book, chapter, verse = scriptFind[1], scriptFind[2], scriptFind[3]
                     passage = scriptures.reference_to_string(bookname=book, chapter=chapter, verse=verse)
@@ -46,3 +44,5 @@ def BibleBot():
             except IndentationError:
                 sendMessage(s, "Usage is \"!verse [Book] [Chapter] [Verse Number]\"")
                 pass
+
+BibleBot()
