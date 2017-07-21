@@ -4,15 +4,10 @@ import string, time
 import scriptures
 from cfg import *
 from biblegateway import biblegateway_api
-from read import getUser, getMessage
-from sock import openSocket, sendMessage
-from initalize import joinRoom
+from twitch import *
 
 readBuffer = ""
 s = openSocket()
-
-def openConnection():
-    joinRoom(s)
 
 def BibleBot():
     while True:
@@ -41,14 +36,17 @@ def BibleBot():
                     votdRef = biblegateway_api.jsonRef
                     sendMessage(s, "Verse of the Day: " + votdRef + " (" + VERSION + "): "+ votd)
                     time.sleep(CMDDELAY)
-                elif "!votd ?" or "!votd help" in message:
+                elif "!biblebot" in message:
                     sendMessage(s, HELP)
                 else:
                     pass
-            except IndentationError:
+            except:
                 sendMessage(s, "Usage is \"!verse [Book] [Chapter] [Verse Number]\"")
                 pass
 
 def bibleOn():
-    openConnection()
+    joinRoom(s)
     BibleBot()
+
+if __name__ == "__main__":
+    bibleOn()

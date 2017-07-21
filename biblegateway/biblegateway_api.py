@@ -195,9 +195,9 @@ output:
 
 url = urls['votd']
 response = urllib2.urlopen(url)
-jsondata = json.load(response)
-jsonRef = jsondata['votd']['reference']
-jsonText = jsondata['votd']['content']
+jsonData = json.load(response)
+jsonRef = jsonData['votd']['reference']
+jsonText = jsonData['votd']['content']
 
 
 """

@@ -1,31 +1,66 @@
+import json
+import configparser
 from Tkinter import *
 from cfg import *
 from run import bibleOn
 import ttk
 
+vsn = TSLNS.get(VERSION)
+
+class uiLoad(): #main ui load function
+
+    def __init__(self, master):
+        frame = Frame(master)
+        frame.pack()
+
+        self.labelLoad()
+        self.buttonLoad()
+        self.gridLoad()
+
+    def labelLoad(self):
+        global label1, label2
+        label1 = Label(root, text="Channel Name")
+        label2 = Label(root, text="Bible Version")
+
+    def buttonLoad(self):
+        global versionDrop, entry1, var
+        var = ""
+        entry1 = Entry(root)
+        default = TSLNS.get(VERSION)
+        if UIR == True:
+            entry1.insert(0, CHANNEL)
+            versionDrop = OptionMenu(root, var, *TSLNS[default])
+        else:
+            entry1.insert(0, "")
+            versionDrop = OptionMenu(root, var, *TSLNS)
+        # run button
+        turnOn = Button(root, text="Turn On", command=bibleOn)
+        turnOn.grid(row=3, column=1)
+        # remember settings
+        stayLI = Checkbutton(root, text="Remember These Settings")
+        stayLI.grid(row=2, columnspan=2)
+
+    def gridLoad(self):
+
+        label1.grid(row=0, column=0, sticky=E)
+        label2.grid(row=1, column=0, sticky=E)
+        entry1.grid(row=0, column=1)
+        versionDrop.grid(row=1, column=1)
+
+#parse methods
+
+#def store():
+#    with open('config.txt', 'r') as file:
+#        data = file.readlines()
+
+#    data[1] = 'Channel = ' + str(entry1)
+#    data[2] = 'Version = ' + str(var)
+
+#    with open('config.txt', 'r') as file:
+#        file.writelines(data)
+
 root = Tk()
-var = StringVar(root)
-var.set("")
-
-#channel name
-label1 = Label(root, text="Channel Name")
-entry1 = Entry(root)
-label1.grid(row=0, column=0, sticky=E)
-entry1.grid(row=0, column=1)
-
-#bible version
-label2 = Label(root, text="Bible Version")
-label2.grid(row=1, column=0, sticky=E)
-versionDrop = OptionMenu(root, var, *TSLNS)
-versionDrop.grid(row=1, column=1)
-
-#run button
-turnOn = Button(root, text="Turn On", command=bibleOn)
-turnOn.grid(row=3, column=1)
-
-#stay logged in
-stayLI = Checkbutton(root, text="Remember These Settings")
-stayLI.grid(row=2, columnspan=2)
-
-#call window
+root.resizable(0,0)
+b = uiLoad(root)
+#root.protocol("WM_DELETE_WINDOW", store())
 root.mainloop()
