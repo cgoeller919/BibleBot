@@ -1,11 +1,6 @@
-import json
-import configparser
 from Tkinter import *
 from cfg import *
 from run import bibleOn
-import ttk
-
-vsn = TSLNS.get(VERSION)
 
 class uiLoad(): #main ui load function
 
@@ -23,13 +18,14 @@ class uiLoad(): #main ui load function
         label2 = Label(root, text="Bible Version")
 
     def buttonLoad(self):
-        global versionDrop, entry1, var
-        var = ""
+        global versionDrop, entry1
+        var = StringVar(root)
+        default = TSLNS[VERSION]
         entry1 = Entry(root)
-        default = TSLNS.get(VERSION)
         if UIR == True:
             entry1.insert(0, CHANNEL)
-            versionDrop = OptionMenu(root, var, *TSLNS[default])
+            versionDrop = OptionMenu(root, var, *TSLNS.values())
+            var.set(default)
         else:
             entry1.insert(0, "")
             versionDrop = OptionMenu(root, var, *TSLNS)
@@ -52,12 +48,10 @@ class uiLoad(): #main ui load function
 #def store():
 #    with open('config.txt', 'r') as file:
 #        data = file.readlines()
-
-#    data[1] = 'Channel = ' + str(entry1)
-#    data[2] = 'Version = ' + str(var)
-
+#    data[1] = 'test'
+#    data[2] = 'test'
 #    with open('config.txt', 'r') as file:
-#        file.writelines(data)
+#       file.writelines(data)
 
 root = Tk()
 root.resizable(0,0)
