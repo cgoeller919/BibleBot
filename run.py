@@ -1,6 +1,6 @@
 #master function
 
-import string, time
+import string, time, logging
 import scriptures
 from cfg import *
 from biblegateway import biblegateway_api
@@ -8,6 +8,7 @@ from twitch import *
 
 readBuffer = ""
 s = openSocket()
+logging.basicConfig(level=logging.DEBUG, filename='errorlog.txt')
 
 def BibleBot():
     while True:
@@ -40,9 +41,8 @@ def BibleBot():
                     sendMessage(s, HELP)
                 else:
                     pass
-            except:
-                sendMessage(s, "Usage is \"!verse [Book] [Chapter] [Verse Number]\"")
-                pass
+            except Exception:
+                logging.exception(time.localtime() + ': ')
 
 def bibleOn():
     joinRoom(s)

@@ -5,9 +5,6 @@ from run import bibleOn
 class uiLoad(): #main ui load function
 
     def __init__(self, master):
-        frame = Frame(master)
-        frame.pack()
-
         self.labelLoad()
         self.buttonLoad()
 
@@ -24,7 +21,7 @@ class uiLoad(): #main ui load function
         entry1 = Entry(root)
         if UIR == True:
             entry1.insert(0, CHANNEL)
-            versionDrop = OptionMenu(root, var, *TSLNS)
+            versionDrop = OptionMenu(root, var, *TSLNS.values())
             var.set(default)
         else:
             entry1.insert(0, "")
