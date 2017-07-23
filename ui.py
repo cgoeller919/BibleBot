@@ -10,21 +10,21 @@ class uiLoad(): #main ui load function
 
         self.labelLoad()
         self.buttonLoad()
-        self.gridLoad()
 
     def labelLoad(self):
-        global label1, label2
         label1 = Label(root, text="Channel Name")
         label2 = Label(root, text="Bible Version")
 
+        label1.grid(row=0, column=0, sticky=E)
+        label2.grid(row=1, column=0, sticky=E)
+
     def buttonLoad(self):
-        global versionDrop, entry1
         var = StringVar(root)
         default = TSLNS[VERSION]
         entry1 = Entry(root)
         if UIR == True:
             entry1.insert(0, CHANNEL)
-            versionDrop = OptionMenu(root, var, *TSLNS.values())
+            versionDrop = OptionMenu(root, var, *TSLNS)
             var.set(default)
         else:
             entry1.insert(0, "")
@@ -36,10 +36,6 @@ class uiLoad(): #main ui load function
         stayLI = Checkbutton(root, text="Remember These Settings")
         stayLI.grid(row=2, columnspan=2)
 
-    def gridLoad(self):
-
-        label1.grid(row=0, column=0, sticky=E)
-        label2.grid(row=1, column=0, sticky=E)
         entry1.grid(row=0, column=1)
         versionDrop.grid(row=1, column=1)
 
