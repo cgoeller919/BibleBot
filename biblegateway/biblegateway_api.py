@@ -4,17 +4,17 @@ import re
 import configparser
 import logging
 from bs4 import BeautifulSoup
-from cfg import VERSION
+from run import VERSION
 import pickle
 
 #Importing configuration params
 config = configparser.ConfigParser()
 config.read('biblegateway/biblegateway_api.cfg')
 
+default_version = VERSION
 urls = config['URL']
 defaults = config['DEFAULT']
 EMPTY = defaults['empty_message']
-default_version = VERSION
 
 def strip_markdown(string):
     return string.replace('*', '').replace('_', '').replace('`', '')

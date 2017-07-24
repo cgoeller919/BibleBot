@@ -10,9 +10,9 @@ from twitch import *
 config = ConfigParser.ConfigParser()
 config.read(open("config.cfg"))
 
-CHANNEL = config.get("CONFIG","CHANNEL")
-VERSION = config.get("CONFIG","VERSION")
-UIR = config.get("CONFIG","UIR")
+CHANNEL = config.get("CONFIG", "CHANNEL")
+VERSION = config.get("CONFIG", "VERSION")
+UIR = config.get("CONFIG", "UIR")
 
 readBuffer = ""
 s = openSocket()

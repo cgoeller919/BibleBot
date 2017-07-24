@@ -1,14 +1,7 @@
 import ConfigParser
 from Tkinter import *
 from cfg import *
-from run import bibleOn
-
-config = ConfigParser.RawConfigParser()
-config.readfp(open("config.cfg"))
-
-CHANNEL = config.get("CONFIG", "CHANNEL")
-VERSION = config.get("CONFIG", "VERSION")
-UIR = config.get("CONFIG", "UIR")
+from run import *
 
 class uiLoad(): #main ui load function
 
