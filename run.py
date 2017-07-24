@@ -4,13 +4,16 @@ import string, time, logging
 import scriptures
 import ConfigParser
 import biblegateway
-import ui
 from cfg import *
 from twitch import *
 
 readBuffer = ""
 s = openSocket()
 logging.basicConfig(level=logging.DEBUG, filename='errorlog.txt')
+
+VERSION = ""
+def VersionSet(VERSION):
+    VERSION = VERSION
 
 def BibleBot():
     while True:
@@ -31,7 +34,7 @@ def BibleBot():
                     scriptFind = message.split()
                     book, chapter, verse = scriptFind[1], scriptFind[2], scriptFind[3]
                     passage = scriptures.reference_to_string(bookname=book, chapter=chapter, verse=verse)
-                    scripture = str(biblegateway.biblegateway_api.get_passage(passage, ui.VERSION,))
+                    scripture = str(biblegateway.biblegateway_api.get_passage(passage, ui.VERSION))
                     sendMessage(s, passage + " (" + ui.VERSION + "): "+ scripture)
                     time.sleep(CMDDELAY)
                 elif "!votd" in message: #looks for votd command in twitch chat

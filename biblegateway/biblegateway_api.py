@@ -3,7 +3,6 @@ import urllib2
 import re
 import configparser
 import logging
-import ui
 from bs4 import BeautifulSoup
 import pickle
 
@@ -11,10 +10,13 @@ import pickle
 config = configparser.ConfigParser()
 config.read('biblegateway/biblegateway_api.cfg')
 
-default_version = ui.VERSION
 urls = config['URL']
 defaults = config['DEFAULT']
 EMPTY = defaults['empty_message']
+default_version = ""
+
+def setDefVer(vsn):
+    default_version = vsn
 
 def strip_markdown(string):
     return string.replace('*', '').replace('_', '').replace('`', '')

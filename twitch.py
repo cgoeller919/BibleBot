@@ -4,6 +4,9 @@ import string
 import socket
 from cfg import *
 
+CHANNEL = ""
+def ChannelSet(CHANNEL):
+    CHANNEL = CHANNEL
 
 def openSocket(): #open socket to twitch
     s = socket.socket()

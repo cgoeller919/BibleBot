@@ -1,14 +1,20 @@
 import ConfigParser
+import run
+import biblegateway
+import twitch
 from Tkinter import *
 from cfg import *
-from run import *
 
 config = ConfigParser.ConfigParser()
-config.read(open("config.cfg"))
+config.readfp(open("config.cfg"))
 
 CHANNEL = config.get("CONFIG", "CHANNEL")
 VERSION = config.get("CONFIG", "VERSION")
 UIR = config.get("CONFIG", "UIR")
+
+biblegateway.biblegateway_api.setDefVer(VERSION)
+run.VersionSet(VERSION)
+twitch.ChannelSet(CHANNEL)
 
 class uiLoad(): #main ui load function
 
@@ -35,7 +41,7 @@ class uiLoad(): #main ui load function
             entry1.insert(0, "")
             versionDrop = OptionMenu(root, var, *TSLNS)
         # run button
-        turnOn = Button(root, text="Turn On", command=bibleOn)
+        turnOn = Button(root, text="Turn On", command=run.bibleOn)
         turnOn.grid(row=3, column=0)
         # quit button
         turnOff = Button(root, text="Turn Off", command=store)
@@ -50,27 +56,26 @@ class uiLoad(): #main ui load function
 
 #parse methods
 
-# class store():
-#     def __init__(self):
-#         self.bgapiStore()
-#
-#
-#     def cfgStore(self):
-#
-#         print("hello world")
-#
-#     def bgapiStore(self):
-#         f = open("biblegateway/biblegateway_api.cfg", "r")
-#         lines = f.readlines()
-#         f.close()
-#         f = open("biblegateway/biblegateway_api.cfg", "w")
-#         f.writelines(lines[3] + VERSION)
-#         f.close()
+class store():
+    def __init__(self):
+        self.bgapiStore()
 
+
+    def cfgStore(self):
+
+        print("hello world")
+
+    def bgapiStore(self):
+        f = open("biblegateway/biblegateway_api.cfg", "r")
+        lines = f.readlines()
+        f.close()
+        f = open("biblegateway/biblegateway_api.cfg", "w")
+        f.writelines(lines[3] + VERSION)
+        f.close()
 
 root = Tk()
 root.resizable(0,0)
-a = uiLoad(root)
+b = uiLoad(root)
 # root.protocol("WM_DELETE_WINDOW", store())
 root.mainloop()
 #store()
