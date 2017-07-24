@@ -3,8 +3,8 @@
 import string, time, logging
 import scriptures
 import ConfigParser
+import biblegateway
 from cfg import *
-from biblegateway import biblegateway_api
 from twitch import *
 
 config = ConfigParser.ConfigParser()
@@ -37,12 +37,12 @@ def BibleBot():
                     scriptFind = message.split()
                     book, chapter, verse = scriptFind[1], scriptFind[2], scriptFind[3]
                     passage = scriptures.reference_to_string(bookname=book, chapter=chapter, verse=verse)
-                    scripture = str(biblegateway_api.get_passage(passage, VERSION,))
+                    scripture = str(biblegateway.biblegateway_api.get_passage(passage, VERSION,))
                     sendMessage(s, passage + " (" + VERSION + "): "+ scripture)
                     time.sleep(CMDDELAY)
                 elif "!votd" in message: #looks for votd command in twitch chat
-                    votd = biblegateway_api.jsonText
-                    votdRef = biblegateway_api.jsonRef
+                    votd = biblegateway.biblegateway_api.jsonText
+                    votdRef = biblegateway.biblegateway_api.jsonRef
                     sendMessage(s, "Verse of the Day: " + votdRef + " (" + VERSION + "): "+ votd)
                     time.sleep(CMDDELAY)
                 elif "!biblebot" in message:

@@ -3,15 +3,15 @@ import urllib2
 import re
 import configparser
 import logging
+import run
 from bs4 import BeautifulSoup
-from run import VERSION
 import pickle
 
 #Importing configuration params
 config = configparser.ConfigParser()
 config.read('biblegateway/biblegateway_api.cfg')
 
-default_version = VERSION
+default_version = run.VERSION
 urls = config['URL']
 defaults = config['DEFAULT']
 EMPTY = defaults['empty_message']
