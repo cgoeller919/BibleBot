@@ -2,9 +2,17 @@
 
 import string, time, logging
 import scriptures
+import ConfigParser
 from cfg import *
 from biblegateway import biblegateway_api
 from twitch import *
+
+config = ConfigParser.ConfigParser()
+config.read(open("config.cfg"))
+
+CHANNEL = config.get("CONFIG","CHANNEL")
+VERSION = config.get("CONFIG","VERSION")
+UIR = config.get("CONFIG","UIR")
 
 readBuffer = ""
 s = openSocket()
@@ -42,7 +50,8 @@ def BibleBot():
                 else:
                     pass
             except Exception:
-                logging.exception(time.localtime() + ': ')
+                logging.exception('Error: ')
+                pass
 
 def bibleOn():
     joinRoom(s)

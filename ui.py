@@ -1,6 +1,14 @@
+import ConfigParser
 from Tkinter import *
 from cfg import *
 from run import bibleOn
+
+config = ConfigParser.RawConfigParser()
+config.readfp(open("config.cfg"))
+
+CHANNEL = config.get("CONFIG", "CHANNEL")
+VERSION = config.get("CONFIG", "VERSION")
+UIR = config.get("CONFIG", "UIR")
 
 class uiLoad(): #main ui load function
 
@@ -28,26 +36,41 @@ class uiLoad(): #main ui load function
             versionDrop = OptionMenu(root, var, *TSLNS)
         # run button
         turnOn = Button(root, text="Turn On", command=bibleOn)
-        turnOn.grid(row=3, column=1)
+        turnOn.grid(row=3, column=0)
+        # quit button
+        turnOff = Button(root, text="Turn Off", command=store)
+        turnOff.grid(row=3, column=1)
         # remember settings
         stayLI = Checkbutton(root, text="Remember These Settings")
         stayLI.grid(row=2, columnspan=2)
-
+        # place entry 1 and dropdown
         entry1.grid(row=0, column=1)
         versionDrop.grid(row=1, column=1)
 
+
 #parse methods
 
-#def store():
-#    with open('config.txt', 'r') as file:
-#        data = file.readlines()
-#    data[1] = 'test'
-#    data[2] = 'test'
-#    with open('config.txt', 'r') as file:
-#       file.writelines(data)
+# class store():
+#     def __init__(self):
+#         self.bgapiStore()
+#
+#
+#     def cfgStore(self):
+#
+#         print("hello world")
+#
+#     def bgapiStore(self):
+#         f = open("biblegateway/biblegateway_api.cfg", "r")
+#         lines = f.readlines()
+#         f.close()
+#         f = open("biblegateway/biblegateway_api.cfg", "w")
+#         f.writelines(lines[3] + VERSION)
+#         f.close()
+
 
 root = Tk()
 root.resizable(0,0)
-b = uiLoad(root)
-#root.protocol("WM_DELETE_WINDOW", store())
+a = uiLoad(root)
+# root.protocol("WM_DELETE_WINDOW", store())
 root.mainloop()
+#store()

@@ -1,4 +1,4 @@
-Twitch BibleBot v0.2.2
+Twitch BibleBot v0.2.3
 
 This is my BibleBot for Twitch. The purpose of this bot is to allow streamers to include a series of commands in their chats that will allow them to quickly have scripture input into their chat for their users to see. This project is open source, and may be used by any who find the need or desire for it, so long as it is not used for monetary gain. This project is not intended to be distributed with the intent to use it for profit, and should only be used as a supplemental tool in spreading the Gospel and the love of Christ.
 
@@ -16,3 +16,5 @@ Twitch Commands
 
 !verse [book] [chapter] [verse number] - prints the request verse
 !votd - prints www.biblegateway.com's verse of the day
+
+If you have any questions

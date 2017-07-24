@@ -1,3 +1,5 @@
+The Following are the versions supported with BibleBot. If you have a version that you would like to use that is not listed here, please contact the developers through the appropriate channels.
+
 21st Century King James Version (KJ21)
 American Standard Version (ASV)
 Amplified Bible (AMP)
@@ -13,9 +15,9 @@ English Standard Version (ESV)
 English Standard Version Anglicised (ESVUK)
 Expanded Bible (EXB)
 1599 Geneva Bible (GNV)	
-GOD’S WORD Translation (GW)
+GODï¿½S WORD Translation (GW)
 Holman Christian Standard Bible (HCSB)	
-International Children’s Bible (ICB)
+International Childrenï¿½s Bible (ICB)
 International Standard Version (ISV)
 Jubilee Bible 2000 (JUB)
 King James Version (KJV)	
