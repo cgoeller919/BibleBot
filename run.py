@@ -4,15 +4,9 @@ import string, time, logging
 import scriptures
 import ConfigParser
 import biblegateway
+import ui
 from cfg import *
 from twitch import *
-
-config = ConfigParser.ConfigParser()
-config.read(open("config.cfg"))
-
-CHANNEL = config.get("CONFIG", "CHANNEL")
-VERSION = config.get("CONFIG", "VERSION")
-UIR = config.get("CONFIG", "UIR")
 
 readBuffer = ""
 s = openSocket()
@@ -37,13 +31,13 @@ def BibleBot():
                     scriptFind = message.split()
                     book, chapter, verse = scriptFind[1], scriptFind[2], scriptFind[3]
                     passage = scriptures.reference_to_string(bookname=book, chapter=chapter, verse=verse)
-                    scripture = str(biblegateway.biblegateway_api.get_passage(passage, VERSION,))
-                    sendMessage(s, passage + " (" + VERSION + "): "+ scripture)
+                    scripture = str(biblegateway.biblegateway_api.get_passage(passage, ui.VERSION,))
+                    sendMessage(s, passage + " (" + ui.VERSION + "): "+ scripture)
                     time.sleep(CMDDELAY)
                 elif "!votd" in message: #looks for votd command in twitch chat
                     votd = biblegateway.biblegateway_api.jsonText
                     votdRef = biblegateway.biblegateway_api.jsonRef
-                    sendMessage(s, "Verse of the Day: " + votdRef + " (" + VERSION + "): "+ votd)
+                    sendMessage(s, "Verse of the Day: " + votdRef + " (" + ui.VERSION + "): "+ votd)
                     time.sleep(CMDDELAY)
                 elif "!biblebot" in message:
                     sendMessage(s, HELP)

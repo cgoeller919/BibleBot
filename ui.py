@@ -3,6 +3,13 @@ from Tkinter import *
 from cfg import *
 from run import *
 
+config = ConfigParser.ConfigParser()
+config.read(open("config.cfg"))
+
+CHANNEL = config.get("CONFIG", "CHANNEL")
+VERSION = config.get("CONFIG", "VERSION")
+UIR = config.get("CONFIG", "UIR")
+
 class uiLoad(): #main ui load function
 
     def __init__(self, master):
